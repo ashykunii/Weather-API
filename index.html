@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Weather</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap-grid.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1 class="logo">WEATHER-APP</h1>
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchBox" placeholder="Search for a city...">
+                    <button class="search-btn" id="searchButton">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="error" id="errorMessage"></div>
+
+            <div class="tabs">
+                <button class="tab active" data-tab="today">Today</button>
+                <button class="tab" data-tab="forecast">5-day forecast</button>
+            </div>
+
+            <div id="errorPage" class="error-page" style="display: none;">
+                <div class="error-code">404</div>
+                <i class="fas fa-search-location error-icon"></i>
+                <h2>Oops! City Not Found</h2>
+                <p class="error-msg">We couldn't find the city you're looking for. Please check your spelling and try again.</p>
+            </div>
+
+            <div id="today" class="content active">
+                <div class="current-weather-card">
+                    <div class="weather-header">
+                        <h3 class="section-title">Current Weather</h3>
+                        <div class="date-time-container">
+                            <p id="currentDate">Loading...</p>
+                            <p id="currentTime">Loading...</p>
+                        </div>
+                    </div>
+                    <div class="weather-main">
+                        <div class="weather-icon">
+                            <img id="weatherIcon" src="" alt="Weather icon">
+                        </div>
+                        <div class="weather-info">
+                            <h2 id="temperature">Loading...</h2>
+                            <p id="weatherDescription">Loading...</p>
+                            <p id="feelsLike">Feels like: Loading...</p>
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <i class="fas fa-sun"></i>
+                            <div>
+                                <div class="detail-label">Sunrise</div>
+                                <div id="sunRise">Loading...</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-moon"></i>
+                            <div>
+                                <div class="detail-label">Sunset</div>
+                                <div id="sunSet">Loading...</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <div class="detail-label">Day Length</div>
+                                <div id="duration">Loading...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hourly-forecast-card">
+                    <h3 class="section-title">HOURLY</h3>
+                    <div class="hourly-forecast" id="hourlyForecast">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nearby-places-card">
+                    <h3 class="section-title">NEARBY PLACES</h3>
+                    <div class="nearby-places" id="nearbyPlaces">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="forecast" class="content">
+                <div class="forecast-days-card">
+                    <div class="forecast-days" id="forecastDays">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hourly-forecast-card">
+                    <h3 class="section-title">HOURLY</h3>
+                    <div class="hourly-forecast" id="selectedDayHourlyForecast">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
